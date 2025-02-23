@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -14,9 +16,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Scaffold(
       body: Stack(
         children: [
-          RiveAnimation.asset('assets/animations/onboarding/shapes.riv')
+          RiveAnimation.asset('assets/animations/onboarding/shapes.riv'),
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: SizedBox(),
+            ),
+          ),
         ],
-
       ),
     );
   }
